@@ -86,12 +86,10 @@
 <meta property="og:site_name" content="YOLO">
 <meta property="og:description" content="一、准备环境1、Node.js 下载，并安装。具体请百度nodejs安装，很简单，官网下载插件然后下一步安装即可。2、Git 下载，并安装。3、安装Hexo，在命令行（即cmd或者终端）运行以下命令： 1sudo npm install -g hexo  4、初始化Hexo，在命令行（即cmd或者终端）依次运行以下命令即可：新建文件夹存放hexo项目 1cd 存放hexo项目的目录  1hexo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190806172843446.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTkwNDA3,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-08-06T09:46:31.000Z">
+<meta property="og:updated_time" content="2019-08-06T09:48:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo博客搭建">
 <meta name="twitter:description" content="一、准备环境1、Node.js 下载，并安装。具体请百度nodejs安装，很简单，官网下载插件然后下一步安装即可。2、Git 下载，并安装。3、安装Hexo，在命令行（即cmd或者终端）运行以下命令： 1sudo npm install -g hexo  4、初始化Hexo，在命令行（即cmd或者终端）依次运行以下命令即可：新建文件夹存放hexo项目 1cd 存放hexo项目的目录  1hexo">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190806172843446.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTkwNDA3,size_16,color_FFFFFF,t_70">
 
 
 
@@ -333,7 +331,10 @@
 <pre><code>3.2、添加SSH key。
 在命令行（即即cmd或者终端）运行以下命令即可：</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
 
-<p>一直按确定即可。<br><img src="https://img-blog.csdnimg.cn/20190806172843446.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTkwNDA3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">出现这段代码即可。<br>    3.3、在命令行（即cmd或者终端）运行以下命令即可：</p>
+<p>一直按确定即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">+---[RSA 2048]----+</span><br><span class="line">|      ...        |</span><br><span class="line">|      .o         |</span><br><span class="line">| .    ...        |</span><br><span class="line">|o .    ..o.      |</span><br><span class="line">|o.. .  .S=       |</span><br><span class="line">|o+ o  . oo* .    |</span><br><span class="line">|+++ o ..o+.=     |</span><br><span class="line">|B* + ..+ .o o.   |</span><br><span class="line">|=+= ..E==oooo.   |</span><br><span class="line">+----[SHA256]-----+</span><br></pre></td></tr></table></figure>
+
+<p>出现这段代码即可。<br>    3.3、在命令行（即cmd或者终端）运行以下命令即可：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
 
 <p>复制出来的编码，一定要从头复制<br>4、github配置<br>    4.1、点击头像——settings——SSH and GPG keys——New SSH key<br>    描述随便写，把上面获取的SSH key复制到上面</p>
