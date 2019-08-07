@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="css3,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="其实毛玻璃的模糊效果技术上比较简单，只是用到了 css 滤镜（filter）中的 blur 属性。但是要做一个好的毛玻璃效果，需要注意很多细节。  比如我们需要将上图中页面中间的文字区域变成毛玻璃效果，首先想到的是给其设置一个透明度，并添加模糊滤镜： article {       background-color: rgba(0,0,0,0.3);       -webkit-filter: b">
+<meta name="keywords" content="css3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css技巧收集-毛玻璃效果">
+<meta property="og:url" content="http://yoursite.com/2019/08/07/css技巧收集-毛玻璃效果/index.html">
+<meta property="og:site_name" content="YOLO">
+<meta property="og:description" content="其实毛玻璃的模糊效果技术上比较简单，只是用到了 css 滤镜（filter）中的 blur 属性。但是要做一个好的毛玻璃效果，需要注意很多细节。  比如我们需要将上图中页面中间的文字区域变成毛玻璃效果，首先想到的是给其设置一个透明度，并添加模糊滤镜： article {       background-color: rgba(0,0,0,0.3);       -webkit-filter: b">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/08/07/css技巧收集-毛玻璃效果/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/07/css技巧收集-毛玻璃效果/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/07/css技巧收集-毛玻璃效果/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/07/css技巧收集-毛玻璃效果/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/07/css技巧收集-毛玻璃效果/5.png">
+<meta property="og:updated_time" content="2019-08-07T09:50:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css技巧收集-毛玻璃效果">
+<meta name="twitter:description" content="其实毛玻璃的模糊效果技术上比较简单，只是用到了 css 滤镜（filter）中的 blur 属性。但是要做一个好的毛玻璃效果，需要注意很多细节。  比如我们需要将上图中页面中间的文字区域变成毛玻璃效果，首先想到的是给其设置一个透明度，并添加模糊滤镜： article {       background-color: rgba(0,0,0,0.3);       -webkit-filter: b">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/07/css技巧收集-毛玻璃效果/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/07/css技巧收集-毛玻璃效果/">
+
+
+
+
+
+  <title>css技巧收集-毛玻璃效果 | YOLO</title>
+  
+
+
+
+
+
+
+
+
+  <style>
+  #canvas{
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      margin: 0;
+      cursor: none;
+      background: #fff;
+  }
+  </style>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="bg_content">
+        <canvas id="canvas"></canvas>
+    </div>
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YOLO</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">You Only Live Once</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            目录
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/07/css技巧收集-毛玻璃效果/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yolo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/icon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YOLO">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">css技巧收集-毛玻璃效果</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-07T17:47:13+08:00">
+                2019-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/07/css技巧收集-毛玻璃效果/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/08/07/css技巧收集-毛玻璃效果/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>其实毛玻璃的模糊效果技术上比较简单，只是用到了 css 滤镜（filter）中的 blur 属性。但是要做一个好的毛玻璃效果，需要注意很多细节。</p>
+<img src="/2019/08/07/css技巧收集-毛玻璃效果/1.png">
+<p>比如我们需要将上图中页面中间的文字区域变成毛玻璃效果，首先想到的是给其设置一个透明度，并添加模糊滤镜：</p>
+<pre><code>article {
+      background-color: rgba(0,0,0,0.3);
+      -webkit-filter: blur(2px);
+      -moz-filter: blur(2px);
+      -ms-filter: blur(2px);
+      -o-filter: blur(2px);
+      filter: blur(2px);    
+  }</code></pre><p>可是生成的效果却是下面这样</p>
+<img src="/2019/08/07/css技巧收集-毛玻璃效果/2.png">：
+<p>从这个失败的例子我们得到两个结论：</p>
+<ol>
+<li><p>对元素直接使用模糊会将其内容全部模糊掉，为了保证文字不会模糊掉需要多一个层单独应用模糊效果。</p>
+</li>
+<li><p>模糊效果并不会应用到其背后的元素上，所以需要使用 content 区域有和背景相同的背景图并进行模糊。</p>
+</li>
+</ol>
+<p>先解决第一个问题：</p>
+<p>多一个层级的方法不通过添加元素，而通过伪元素。</p>
+<pre><code>article {
+    z-index: 1;
+}
+
+
+article :after {
+        content: &apos;&apos;;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255,255,255,0.8);
+        z-index: -1;
+    }</code></pre><p>这里有两点需要注意，由于伪元素不能通过 width:100% 和 height:100% 来继承宿主元素的尺寸，所以通过上述方式来继承 article 的尺寸；为了使伪元素位于 article 的下面这里给其设置 z-index:-1，为不使其隐藏到背景图的后面，这里给 article 设置 z-index:1；注意必须给article设置position：relative。<br>效果：</p>
+<img src="/2019/08/07/css技巧收集-毛玻璃效果/3.png">
+<p>接下来给 article::after 设置相同的背景图。</p>
+<img src="/2019/08/07/css技巧收集-毛玻璃效果/4.png">
+<p>如上图，即使我们设置了相同的 background-postion 与 background-size，中间部分的图和大背景还是没有拼接成功。</p>
+<p>解决这个问题的方法很简单，只需要添加 background-attachment: fixed 属性，之后为其进行模糊处理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">article&#123;</span><br><span class="line">    background-position: center top;</span><br><span class="line">    background-size: cover;</span><br><span class="line">&#125;</span><br><span class="line">article::after &#123;</span><br><span class="line">    background-image: url(xxx.jpg);</span><br><span class="line">    background-position: center top;</span><br><span class="line">    background-size: cover;</span><br><span class="line">    background-attachment: fixed;</span><br><span class="line">    -webkit-filter: blur(20px);</span><br><span class="line">    -moz-filter: blur(20px);</span><br><span class="line">    -ms-filter: blur(20px);</span><br><span class="line">    -o-filter: blur(20px);</span><br><span class="line">    filter: blur(20px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/08/07/css技巧收集-毛玻璃效果/5.png">
+<p>可以看到基本得到了我们想要的效果，美中不足的是在元素的边缘模糊的效果减弱了。为了解决这个问题，我们将伪元素的范围扩大一些，同时为了效果不超出 content 的范围，给其设置 overflow:hidden 属性。</p>
+<pre><code>article {
+　　overflow: hidden;
+}
+article::after {
+　　margin: -30px;
+}</code></pre><p>这样一个比较完美的毛玻璃效果就完成了，无论你如何改变浏览器窗口的尺寸，article 部分的背景图都能很好的与背景拼接，这都归功于 <code>background-attachment</code> 属性。<br>附上源码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;css3毛玻璃效果&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        body,html&#123;</span><br><span class="line">            margin: 0;</span><br><span class="line">            padding: 0;</span><br><span class="line">            height: 100vh;</span><br><span class="line">            width: 100vw;</span><br><span class="line">        &#125;</span><br><span class="line">       .content&#123;</span><br><span class="line">           background: url(./img/timg1.jpg) no-repeat;</span><br><span class="line">           background-size: cover;</span><br><span class="line">           width: 100%;</span><br><span class="line">           height: 100%;</span><br><span class="line">           overflow: hidden;</span><br><span class="line">           display: flex;</span><br><span class="line">           justify-content: center;</span><br><span class="line">           align-items: center;</span><br><span class="line">       &#125;</span><br><span class="line">        article&#123;</span><br><span class="line">            width: 60%;</span><br><span class="line">            background: rgba(255,255,255,.8);</span><br><span class="line">            border-radius: 10px;</span><br><span class="line">            box-shadow: 1px 4px 8px rgba(0,0,0,.4);</span><br><span class="line">            padding: 15px 25px;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            position: relative; /*宿主元素必须加relative ，否则伪元素会继承body的宽高*/</span><br><span class="line">            z-index: 1;</span><br><span class="line">            background-size: cover;</span><br><span class="line">            background-position: center top;</span><br><span class="line">            overflow: hidden;</span><br><span class="line">        &#125;</span><br><span class="line">        article :after&#123;</span><br><span class="line">            content: &apos;&apos;;</span><br><span class="line">            position: absolute;</span><br><span class="line">            top:0;</span><br><span class="line">            left:0;</span><br><span class="line">            bottom:0;</span><br><span class="line">            right: 0;  /*!* 定位这些是为了让伪类元素继承宿主元素的宽高 *!*/</span><br><span class="line">            z-index: -1;</span><br><span class="line">            background-color: rgba(255,255,255,.8);</span><br><span class="line">            border-radius: 10px;</span><br><span class="line">            background-image: url(./img/timg1.jpg);</span><br><span class="line">            background-size: cover;</span><br><span class="line">            background-position: center top;/* !*设置和宿主元素相同的背景位置，为了和背景进行拼接*!*/</span><br><span class="line">            background-attachment: fixed; /*!*背景图片相对于视口固定，就算元素有了滚动条，背景图也不随内容移动。伪元素的背景就和背景图片拼合了*!*/</span><br><span class="line">            margin-left: -30px; /*!*进行稍微的偏移*!*/</span><br><span class="line">            -webkit-filter: blur(12px); /*!*背景进行模糊处理效果*!*/</span><br><span class="line">            -moz-filter: blur(12px);</span><br><span class="line">            -ms-filter: blur(12px);</span><br><span class="line">            -o-filter: blur(12px);</span><br><span class="line">            filter: blur(12px);</span><br><span class="line">        &#125;</span><br><span class="line">        article p&#123;</span><br><span class="line">            width: 100%;</span><br><span class="line">            word-break: normal;</span><br><span class="line">            word-wrap: break-word;</span><br><span class="line">            line-height: 30px;</span><br><span class="line">            color: #000;</span><br><span class="line">        &#125;</span><br><span class="line">        article h3&#123;</span><br><span class="line">            text-align: center;</span><br><span class="line">            color: #000;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;content&quot;&gt;</span><br><span class="line">        &lt;article&gt;</span><br><span class="line">            &lt;h3&gt;Aestheticism&lt;/h3&gt;</span><br><span class="line">            &lt;p&gt;To the world you may be one person, but to one person you may be the world.No man or woman is worth your tears, and the one who is, won&apos;t make you cry. Never frown, even when you are sad, because you never know who is falling in love with your smile. We met at the wrong time, but separated at the right time. The most urgent is to take the most beautiful scenery; the deepest wound was the most real emotions.Time would heal almost all wounds. If your wounds have not been healed up, please wait for a short while. &lt;/p&gt;</span><br><span class="line">        &lt;/article&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css3/" rel="tag"># css3</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/07/美化浏览器滚动条/" rel="next" title="美化浏览器滚动条">
+                <i class="fa fa-chevron-left"></i> 美化浏览器滚动条
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2019/08/07/css技巧收集-毛玻璃效果/" data-title="css技巧收集-毛玻璃效果" data-url="http://yoursite.com/2019/08/07/css技巧收集-毛玻璃效果/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/icon.png" alt="yolo">
+            
+              <p class="site-author-name" itemprop="name">yolo</p>
+              <p class="site-description motion-element" itemprop="description">You Only Live Once</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+    <div id="music163player">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=415793857&auto=1&height=66"></iframe>
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yolo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"YOLO"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script>
+class Circle {
+
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.r = Math.random() * 3 ;
+        this._mx = Math.random() ;
+        this._my = Math.random() ;
+
+    }
+    drawCircle(ctx) {
+        ctx.beginPath();
+        //arc()
+        ctx.arc(this.x, this.y, this.r, 0, 360)
+        ctx.closePath();
+        ctx.fillStyle = 'rgba(204, 204, 204, 0.3)';
+        ctx.fill();
+    }
+
+    drawLine(ctx, _circle) {
+        let dx = this.x - _circle.x;
+        let dy = this.y - _circle.y;
+        let d = Math.sqrt(dx * dx + dy * dy)
+        if (d < 150) {
+            ctx.beginPath();
+
+            ctx.moveTo(this.x, this.y);
+            ctx.lineTo(_circle.x, _circle.y);
+            ctx.closePath();
+            ctx.strokeStyle = 'rgba(204, 204, 204, 0.3)';
+            ctx.stroke();
+        }
+    }
+
+
+    move(w, h) {
+        this._mx = (this.x < w && this.x > 0) ? this._mx : (-this._mx);
+        this._my = (this.y < h && this.y > 0) ? this._my : (-this._my);
+        this.x += this._mx / 2;
+        this.y += this._my / 2;
+    }
+}
+class currentCirle extends Circle {
+    constructor(x, y) {
+        super(x, y)
+    }
+
+    drawCircle(ctx) {
+        ctx.beginPath();
+
+        //this.r = (this.r < 14 && this.r > 1) ? this.r + (Math.random() * 2 - 1) : 2;
+        this.r = 4;
+        ctx.arc(this.x, this.y, this.r, 0, 360);
+        ctx.closePath();
+        //ctx.fillStyle = 'rgba(0,0,0,' + (parseInt(Math.random() * 100) / 100) + ')'
+        ctx.fillStyle = 'rgba(255, 77, 54, 0.2)'
+        ctx.fill();
+
+    }
+}
+//?????requestAnimationFrame??setTimeout
+window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+
+let canvas = document.getElementById('canvas');
+let ctx = canvas.getContext('2d');
+let w = canvas.width = canvas.offsetWidth;
+let h = canvas.height = canvas.offsetHeight;
+let circles = [];
+let current_circle = new currentCirle(0, 0)
+
+let draw = function () {
+    ctx.clearRect(0, 0, w, h);
+    for (let i = 0; i < circles.length; i++) {
+        circles[i].move(w, h);
+        circles[i].drawCircle(ctx);
+        for (j = i + 1; j < circles.length; j++) {
+            circles[i].drawLine(ctx, circles[j])
+        }
+    }
+    if (current_circle.x) {
+        current_circle.drawCircle(ctx);
+        for (var k = 1; k < circles.length; k++) {
+            current_circle.drawLine(ctx, circles[k])
+        }
+    }
+    requestAnimationFrame(draw)
+}
+
+let init = function (num) {
+    for (var i = 0; i < num; i++) {
+        circles.push(new Circle(Math.random() * w, Math.random() * h));
+    }
+    draw();
+}
+window.addEventListener('load', init(60));
+window.onmousemove = function (e) {
+    e = e || window.event;
+    current_circle.x = e.clientX;
+    current_circle.y = e.clientY;
+}
+window.onmouseout = function () {
+    current_circle.x = null;
+    current_circle.y = null;
+
+};
+</script>
+</html>
