@@ -232,6 +232,142 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/07/博客图片显示问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yolo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/icon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YOLO">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/07/博客图片显示问题/" itemprop="url">博客图片显示问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-07T09:14:55+08:00">
+                2019-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/07/博客图片显示问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/08/07/博客图片显示问题/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、插件安装与配置"><a href="#一、插件安装与配置" class="headerlink" title="一、插件安装与配置"></a>一、插件安装与配置</h1><p>1、首先我们需要安装一个图片路径转换的插件，这个插件名字是hexo-asset-image</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+
+<p>但是这个插件的内容需要修改【不然可能会出Bug】<br>打开<code>/node_modules/hexo-asset-image/index.js</code>，将内容更换为下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">&apos;use strict&apos;;</span><br><span class="line">var cheerio = require(&apos;cheerio&apos;);</span><br><span class="line"></span><br><span class="line">// http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string</span><br><span class="line">function getPosition(str, m, i) &#123;</span><br><span class="line">  return str.split(m, i).join(m).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var version = String(hexo.version).split(&apos;.&apos;);</span><br><span class="line">hexo.extend.filter.register(&apos;after_post_render&apos;, function(data)&#123;</span><br><span class="line">  var config = hexo.config;</span><br><span class="line">  if(config.post_asset_folder)&#123;</span><br><span class="line">    	var link = data.permalink;</span><br><span class="line">	if(version.length &gt; 0 &amp;&amp; Number(version[0]) == 3)</span><br><span class="line">	   var beginPos = getPosition(link, &apos;/&apos;, 1) + 1;</span><br><span class="line">	else</span><br><span class="line">	   var beginPos = getPosition(link, &apos;/&apos;, 3) + 1;</span><br><span class="line">	// In hexo 3.1.1, the permalink of &quot;about&quot; page is like &quot;.../about/index.html&quot;.</span><br><span class="line">	var endPos = link.lastIndexOf(&apos;/&apos;) + 1;</span><br><span class="line">    link = link.substring(beginPos, endPos);</span><br><span class="line"></span><br><span class="line">    var toprocess = [&apos;excerpt&apos;, &apos;more&apos;, &apos;content&apos;];</span><br><span class="line">    for(var i = 0; i &lt; toprocess.length; i++)&#123;</span><br><span class="line">      var key = toprocess[i];</span><br><span class="line"></span><br><span class="line">      var $ = cheerio.load(data[key], &#123;</span><br><span class="line">        ignoreWhitespace: false,</span><br><span class="line">        xmlMode: false,</span><br><span class="line">        lowerCaseTags: false,</span><br><span class="line">        decodeEntities: false</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      $(&apos;img&apos;).each(function()&#123;</span><br><span class="line">		if ($(this).attr(&apos;src&apos;))&#123;</span><br><span class="line">			// For windows style path, we replace &apos;\&apos; to &apos;/&apos;.</span><br><span class="line">			var src = $(this).attr(&apos;src&apos;).replace(&apos;\\&apos;, &apos;/&apos;);</span><br><span class="line">			if(!/http[s]*.*|\/\/.*/.test(src) &amp;&amp;</span><br><span class="line">			   !/^\s*\//.test(src)) &#123;</span><br><span class="line">			  // For &quot;about&quot; page, the first part of &quot;src&quot; can&apos;t be removed.</span><br><span class="line">			  // In addition, to support multi-level local directory.</span><br><span class="line">			  var linkArray = link.split(&apos;/&apos;).filter(function(elem)&#123;</span><br><span class="line">				return elem != &apos;&apos;;</span><br><span class="line">			  &#125;);</span><br><span class="line">			  var srcArray = src.split(&apos;/&apos;).filter(function(elem)&#123;</span><br><span class="line">				return elem != &apos;&apos; &amp;&amp; elem != &apos;.&apos;;</span><br><span class="line">			  &#125;);</span><br><span class="line">			  if(srcArray.length &gt; 1)</span><br><span class="line">				srcArray.shift();</span><br><span class="line">			  src = srcArray.join(&apos;/&apos;);</span><br><span class="line">			  $(this).attr(&apos;src&apos;, config.root + link + src);</span><br><span class="line">			  console.info&amp;&amp;console.info(&quot;update link as:--&gt;&quot;+config.root + link + src);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			console.info&amp;&amp;console.info(&quot;no src attr, skipped...&quot;);</span><br><span class="line">			console.info&amp;&amp;console.info($(this));</span><br><span class="line">		&#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      data[key] = $.html();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>2、完成安装后用hexo新建文章的时候会发现_posts目录下面会多出一个和文章名字一样的文件夹。图片就可以放在文件夹下面。<br>3、首先确认<code>_config.yml</code> 中有 <code>post_asset_folder:true</code>。<br>Hexo 提供了一种更方便管理 Asset 的设定：post_asset_folder<br>当您设置post_asset_folder为true参数后，在建立文件时，Hexo<br>会自动建立一个与文章同名的文件夹，您可以把与该文章相关的所有资源都放到那个文件夹，如此一来，您便可以更方便的使用资源。<br>4、正确的引用图片方式是使用下列的标签插件而不是 markdown ：</p>
+<pre><code>{% asset_img example.jpg This is an example image %}</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/07/hexo修改Next主题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -326,7 +462,9 @@
 <h1 id="三、验证主题"><a href="#三、验证主题" class="headerlink" title="三、验证主题"></a>三、验证主题</h1><p>首先启动 Hexo 本地站点，并开启调试模式（即加上 –debug），整个命令是 <code>hexo s --debug</code>。 在服务启动的过程，注意观察命令行输出是否有任何异常信息，如果你碰到问题，这些信息将帮助他人更好的定位错误。 当命令行输出中提示出：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
 
-<p>此时即可使用浏览器访问 <a href="http://localhost:4000，检查站点是否正确运行。" target="_blank" rel="noopener">http://localhost:4000，检查站点是否正确运行。</a><br>当你看到站点的外观与下图所示类似时即说明你已成功安装 NexT 主题。这是 NexT 默认的 Scheme —— Muse<br><img src="https://img-blog.csdnimg.cn/20190807083019932.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTkwNDA3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">现在，你已经成功安装并启用了 NexT 主题。下一步我们将要更改一些主题的设定，包括个性化以及集成第三方服务。</p>
+<p>此时即可使用浏览器访问 <a href="http://localhost:4000，检查站点是否正确运行。" target="_blank" rel="noopener">http://localhost:4000，检查站点是否正确运行。</a><br>当你看到站点的外观与下图所示类似时即说明你已成功安装 NexT 主题。这是 NexT 默认的 Scheme —— Muse</p>
+<img src="/2019/08/07/hexo修改Next主题/index.png" title="默认风格">
+<p>现在，你已经成功安装并启用了 NexT 主题。下一步我们将要更改一些主题的设定，包括个性化以及集成第三方服务。</p>
 <h1 id="四、主题设定"><a href="#四、主题设定" class="headerlink" title="四、主题设定"></a>四、主题设定</h1><p><strong>选择 Scheme</strong><br>Scheme 是 NexT 提供的一种特性，借助于 Scheme，NexT 为你提供多种不同的外观。同时，几乎所有的配置都可以 在 Scheme 之间共用。目前 NexT 支持三种 Scheme，他们是：</p>
 <p>   Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白<br>   Mist - Muse 的紧凑版本，整洁有序的单栏外观<br>   Pisces - 双栏 Scheme，小家碧玉似的清新<br>Scheme 的切换通过更改 主题配置文件，搜索 <code>scheme</code> 关键字。 你会看到有三行 <code>scheme</code> 的配置，将你需用启用的 <code>scheme</code> 前面注释 # 去除即可。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">选择 Pisces Scheme</span><br><span class="line"></span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">scheme: Pisces</span><br></pre></td></tr></table></figure>
@@ -338,7 +476,9 @@
 <p>编辑 主题配置文件，修改以下内容：<br>1、设定菜单内容，对应的字段是 menu。 菜单内容的设置格式是：item name: link。其中 item name 是一个名称，这个名称并不直接显示在页面上，她将用于匹配图标以及翻译。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">菜单示例配置</span><br><span class="line"></span><br><span class="line">menu:</span><br><span class="line"> home: /</span><br><span class="line"> archives: /archives</span><br><span class="line"> #about: /about</span><br><span class="line"> #categories: /categories</span><br><span class="line"> tags: /tags</span><br><span class="line"> #commonweal: /404.html</span><br></pre></td></tr></table></figure>
 
-<p>2、NexT 默认的菜单项有（标注 的项表示需要手动创建这个页面）：<br><img src="https://img-blog.csdnimg.cn/20190807084727155.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTkwNDA3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">2、设置菜单项的显示文本。在第一步中设置的菜单的名称并不直接用于界面上的展示。Hexo 在生成的时候将使用 这个名称查找对应的语言翻译，并提取显示文本。这些翻译文本放置在 NexT 主题目录下的 <code>languages/{language}.yml</code> （{language} 为你所使用的语言）。<br>3、以简体中文为例，若你需要添加一个菜单项，比如 something。那么就需要修改简体中文对应的翻译文件 <code>languages/zh-Hans.yml</code>，在 menu 字段下添加一项：</p>
+<p>2、NexT 默认的菜单项有（标注 的项表示需要手动创建这个页面）：</p>
+<img src="/2019/08/07/hexo修改Next主题/2.png">
+<p>3、设置菜单项的显示文本。在第一步中设置的菜单的名称并不直接用于界面上的展示。Hexo 在生成的时候将使用 这个名称查找对应的语言翻译，并提取显示文本。这些翻译文本放置在 NexT 主题目录下的 <code>languages/{language}.yml</code> （{language} 为你所使用的语言）。<br>4、以简体中文为例，若你需要添加一个菜单项，比如 something。那么就需要修改简体中文对应的翻译文件 <code>languages/zh-Hans.yml</code>，在 menu 字段下添加一项：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line"> home: 首页</span><br><span class="line"> archives: 归档</span><br><span class="line"> categories: 分类</span><br><span class="line"> tags: 标签</span><br><span class="line"> about: 关于</span><br><span class="line"> search: 搜索</span><br><span class="line"> commonweal: 公益404</span><br><span class="line"> something: 有料</span><br></pre></td></tr></table></figure>
 
 <p>3、设定菜单项的图标，对应的字段是 <code>menu_icons</code>。 此设定格式是 <code>item name: icon name</code>，其中 item name 与上一步所配置的菜单名字对应，icon name 是 <code>Font Awesome</code> 图标的 名字。而 <code>enable</code> 可用于控制是否显示图标，你可以设置成 <code>false</code> 来去掉图标。</p>
@@ -372,7 +512,9 @@
 
 <h1 id="九、设置-作者昵称"><a href="#九、设置-作者昵称" class="headerlink" title="九、设置 作者昵称"></a>九、设置 作者昵称</h1><p>编辑 站点配置文件， 设置 <code>author</code> 为你的昵称。</p>
 <h1 id="十、站点描述"><a href="#十、站点描述" class="headerlink" title="十、站点描述"></a>十、站点描述</h1><p>编辑 站点配置文件， 设置 description 字段为你的站点描述。站点描述可以是你喜欢的一句签名:)</p>
-<h1 id="十一、集成常用的第三方服务"><a href="#十一、集成常用的第三方服务" class="headerlink" title="十一、集成常用的第三方服务"></a>十一、集成常用的第三方服务</h1><p><strong>百度统计</strong><br>注意： baidu_analytics 不是你的百度 id 或者 百度统计 id<br>1、登录 百度统计， 定位到站点的代码获取页面<br>2、复制 hm.js? 后面那串统计脚本 id，如：<br><img src="https://img-blog.csdnimg.cn/20190807085629815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NTkwNDA3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">3、编辑 主题配置文件， 修改字段 <code>baidu_analytics</code> 字段，值设置成你的百度统计脚本 id。<br><strong>阅读次数统计（LeanCloud）</strong><br>由 Doublemine 贡献<br>请查看 <a href="https://notes.doublemine.me/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud" target="_blank" rel="noopener">为NexT主题添加文章阅读量统计功能</a></p>
+<h1 id="十一、集成常用的第三方服务"><a href="#十一、集成常用的第三方服务" class="headerlink" title="十一、集成常用的第三方服务"></a>十一、集成常用的第三方服务</h1><p><strong>百度统计</strong><br>注意： baidu_analytics 不是你的百度 id 或者 百度统计 id<br>1、登录 百度统计， 定位到站点的代码获取页面<br>2、复制 hm.js? 后面那串统计脚本 id，如：</p>
+<img src="/2019/08/07/hexo修改Next主题/1.png">
+<p>3、编辑 主题配置文件， 修改字段 <code>baidu_analytics</code> 字段，值设置成你的百度统计脚本 id。<br><strong>阅读次数统计（LeanCloud）</strong><br>由 Doublemine 贡献<br>请查看 <a href="https://notes.doublemine.me/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud" target="_blank" rel="noopener">为NexT主题添加文章阅读量统计功能</a></p>
 
           
         
@@ -766,7 +908,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
