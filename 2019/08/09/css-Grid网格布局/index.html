@@ -90,7 +90,6 @@
 <meta property="og:image" content="http://yoursite.com/2019/08/09/css-Grid网格布局/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/09/css-Grid网格布局/2.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/09/css-Grid网格布局/3.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/09/css-Grid网格布局/3.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/09/css-Grid网格布局/4.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/09/css-Grid网格布局/5.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/09/css-Grid网格布局/6.png">
@@ -98,7 +97,8 @@
 <meta property="og:image" content="http://yoursite.com/2019/08/09/css-Grid网格布局/8.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/09/css-Grid网格布局/9.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/09/css-Grid网格布局/10.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/09/css-Grid网格布局/12.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/09/css-Grid网格布局/11.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/09/css-Grid网格布局/13.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/09/css-Grid网格布局/13.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/09/css-Grid网格布局/14.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/09/css-Grid网格布局/15.png">
@@ -115,7 +115,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/08/09/css-Grid网格布局/30.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/09/css-Grid网格布局/31.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/09/css-Grid网格布局/32.png">
-<meta property="og:updated_time" content="2019-08-09T00:55:13.000Z">
+<meta property="og:updated_time" content="2019-08-09T01:02:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css Grid网格布局">
 <meta name="twitter:description" content="一、概述网格布局（Grid）是最强大的 CSS 布局方案。 它将网页划分成一个个网格，可以任意组合不同的网格，做出各种各样的布局。以前，只能通过复杂的 CSS 框架达到的效果，现在浏览器内置了。  上图这样的布局，就是 Grid 布局的拿手好戏。 Grid 布局与 Flex 布局有一定的相似性，都可以指定容器内部多个项目的位置。但是，它们也存在重大区别。 Flex 布局是轴线布局，只能指定”项目”">
@@ -384,19 +384,19 @@
 <p><code>display: grid</code>指定一个容器采用网格布局。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">div &#123;</span><br><span class="line">  display: grid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<img src="/2019/08/09/css-Grid网格布局/3.png">
+<img src="/2019/08/09/css-Grid网格布局/4.png">
 <p>上图是<code>display: grid</code>的效果。<br>默认情况下，容器元素都是块级元素，但也可以设成行内元素。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">  display: inline-grid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>上面代码指定<code>div</code>是一个行内元素，该元素内部采用网格布局。</p>
-<img src="/2019/08/09/css-Grid网格布局/4.png">
+<img src="/2019/08/09/css-Grid网格布局/5.png">
 <p>上图是<code>display: inline-grid</code>的效果。<br>注意，设为网格布局以后，容器子元素（项目）的<code>float</code>、<code>display: inline-block</code>、<code>display: table-cell</code>、<code>vertical-align</code>和<code>column-*</code>等设置都将失效。</p>
 <p><strong>3.2、grid-template-columns 属性，grid-template-rows 属性</strong></p>
 <p>容器指定了网格布局以后，接着就要划分行和列。<code>grid-template-columns</code>属性定义每一列的列宽，<code>grid-template-rows</code>属性定义每一行的行高。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  grid-template-columns: 100px 100px 100px;</span><br><span class="line">  grid-template-rows: 100px 100px 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>上面代码指定了一个三行三列的网格，列宽和行高都是100px。</p>
-<img src="/2019/08/09/css-Grid网格布局/5.png">
+<img src="/2019/08/09/css-Grid网格布局/6.png">
 <p>除了使用绝对单位，也可以使用百分比。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">.container &#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  grid-template-columns: 33.33% 33.33% 33.33%;</span><br><span class="line">  grid-template-rows: 33.33% 33.33% 33.33%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -407,24 +407,24 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">grid-template-columns: repeat(2, 100px 20px 80px);</span><br></pre></td></tr></table></figure>
 
 <p>上面代码定义了6列，第一列和第四列的宽度为100px，第二列和第五列为20px，第三列和第六列为80px。</p>
-<img src="/2019/08/09/css-Grid网格布局/6.png">
+<img src="/2019/08/09/css-Grid网格布局/7.png">
 <p><strong>（2）auto-fill 关键字</strong><br>有时，单元格的大小是固定的，但是容器的大小不确定。如果希望每一行（或每一列）容纳尽可能多的单元格，这时可以使用<code>auto-fill</code>关键字表示自动填充。</p>
 <pre><code>.container {
   display: grid;
   grid-template-columns: repeat(auto-fill, 100px);
 }</code></pre><p>上面代码表示每列宽度100px，然后自动填充，直到容器不能放置更多的列。</p>
-<img src="/2019/08/09/css-Grid网格布局/7.png">
+<img src="/2019/08/09/css-Grid网格布局/8.png">
 <p><strong>（3）fr 关键字</strong><br>为了方便表示比例关系，网格布局提供了fr关键字（fraction 的缩写，意为”片段”）。如果两列的宽度分别为1fr和2fr，就表示后者是前者的两倍。</p>
 <pre><code>.container {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }</code></pre><p>上面代码表示两个相同宽度的列。</p>
-<img src="/2019/08/09/css-Grid网格布局/8.png">
+<img src="/2019/08/09/css-Grid网格布局/9.png">
 <p><code>fr</code>可以与绝对长度的单位结合使用，这时会非常方便。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  grid-template-columns: 150px 1fr 2fr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>上面代码表示，第一列的宽度为150像素，第二列的宽度是第三列的一半。</p>
-<img src="/2019/08/09/css-Grid网格布局/9.png">
+<img src="/2019/08/09/css-Grid网格布局/10.png">
 <p><strong>（4）minmax()</strong></p>
 <p><code>minmax()</code>函数产生一个长度范围，表示长度就在这个范围之中。它接受两个参数，分别为最小值和最大值。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid-template-columns: 1fr 1fr minmax(100px, 1fr);</span><br></pre></td></tr></table></figure>
@@ -455,7 +455,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">  grid-row-gap: 20px;</span><br><span class="line">  grid-column-gap: 20px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>上面代码中，<code>grid-row-gap</code>用于设置行间距，<code>grid-column-gap</code>用于设置列间距。</p>
-<img src="/2019/08/09/css-Grid网格布局/10.png">
+<img src="/2019/08/09/css-Grid网格布局/11.png">
 <p><strong>grid-gap</strong>属性是<strong>grid-column-gap</strong>和<strong>grid-row-gap</strong>的合并简写形式，语法如下。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid-gap: &lt;grid-row-gap&gt; &lt;grid-column-gap&gt;;</span><br></pre></td></tr></table></figure>
 
@@ -482,9 +482,9 @@
 <pre><code>注意，区域的命名会影响到网格线。每个区域的起始网格线，会自动命名为区域名-start，终止网格线自动命名为区域名-end。
 
 比如，区域名为header，则起始位置的水平网格线和垂直网格线叫做header-start，终止位置的水平网格线和垂直网格线叫做header-end。
-{% asset_img 11.png %}</code></pre><p><strong>3.5 grid-auto-flow 属性</strong></p>
+{% asset_img 12.png %}</code></pre><p><strong>3.5 grid-auto-flow 属性</strong></p>
 <p>划分网格以后，容器的子元素会按照顺序，自动放置在每一个网格。默认的放置顺序是”先行后列”，即先填满第一行，再开始放入第二行，即下图数字的顺序。</p>
-<img src="/2019/08/09/css-Grid网格布局/12.png">
+<img src="/2019/08/09/css-Grid网格布局/13.png">
 <p>这个顺序由<code>grid-auto-flow</code>属性决定，默认值是<code>row</code>，即”先行后列”。也可以将它设成<code>column</code>，变成”先列后行”。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid-auto-flow: column;</span><br></pre></td></tr></table></figure>
 
