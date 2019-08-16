@@ -248,6 +248,157 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/16/纯cs实现s波浪效果/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yolo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/icon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YOLO">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/16/纯cs实现s波浪效果/" itemprop="url">纯cs实现s波浪效果</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-16T14:44:44+08:00">
+                2019-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/16/纯cs实现s波浪效果/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/08/16/纯cs实现s波浪效果/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          原理原理十分简单，我们都知道，一个正方形，给它添加 border-radius: 50%，将会得到一个圆形。
+
+
+
+border-radius：用来设置边框圆角，当使用一个半径时确定一个圆形。好的，如果 border-radius 没到 50%，但是接近 50% ，我们会得到一个这样的图形：
+注意边角，整个图形给人的感觉是有点圆，却不是很圆。额，这不是废话吗 ？
+
+好的，那整这么个图形又有什么用？还能变出波浪来不成？
+没错！就是这么神奇。:)我们让上面这个图形滚动起来(rotate) ，看看效果：
+
+可能很多人看到这里还没懂旋转起来的意图，仔细盯着一边看，是会有类似波浪的起伏效果的。
+而我们的目的，就是要借助这个动态变换的起伏动画，模拟制造出类似波浪的效果。
+实现当然，这里看到是全景实现图，所以感觉并不明显，OK，让我们用一个个例子看看具体实现起来能达到什么样的效果。
+我们利用上面原理可以做到的一种波浪运动背景效果图：
+
+后面漂浮的波浪效果，其实就是利用了上面的 border-radiu
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/16/纯cs实现s波浪效果/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/16/css自定义属性/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1586,7 +1737,7 @@ npm install hexo-asset-image --save安装插件
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
