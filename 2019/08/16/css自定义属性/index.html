@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="css,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、CSS 自定义属性简介CSS自定义属性已进入到W3C规范的 TR阶段，纳入在一个独立的模块中，即 CSS Custom Properties for Cascading Variables Module Level 1。 该模块引入了一系列作者（CSSer）自己定义的属性，这些属性统称为自定义属性，允许作者自由的选择名称，自由的为名称属性分配任意值。这些属性能够提供给var()函数使用，被va">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css自定义属性">
+<meta property="og:url" content="http://yoursite.com/2019/08/16/css自定义属性/index.html">
+<meta property="og:site_name" content="YOLO">
+<meta property="og:description" content="一、CSS 自定义属性简介CSS自定义属性已进入到W3C规范的 TR阶段，纳入在一个独立的模块中，即 CSS Custom Properties for Cascading Variables Module Level 1。 该模块引入了一系列作者（CSSer）自己定义的属性，这些属性统称为自定义属性，允许作者自由的选择名称，自由的为名称属性分配任意值。这些属性能够提供给var()函数使用，被va">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/08/16/css自定义属性/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/16/css自定义属性/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/16/css自定义属性/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/16/css自定义属性/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/16/css自定义属性/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/16/css自定义属性/6.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/16/css自定义属性/7.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/16/css自定义属性/8.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/16/css自定义属性/9.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/16/css自定义属性/10.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/16/css自定义属性/11.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/16/css自定义属性/12.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/16/css自定义属性/13.png">
+<meta property="og:updated_time" content="2019-08-16T00:58:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css自定义属性">
+<meta name="twitter:description" content="一、CSS 自定义属性简介CSS自定义属性已进入到W3C规范的 TR阶段，纳入在一个独立的模块中，即 CSS Custom Properties for Cascading Variables Module Level 1。 该模块引入了一系列作者（CSSer）自己定义的属性，这些属性统称为自定义属性，允许作者自由的选择名称，自由的为名称属性分配任意值。这些属性能够提供给var()函数使用，被va">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/16/css自定义属性/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/16/css自定义属性/">
+
+
+
+
+
+  <title>css自定义属性 | YOLO</title>
+  
+
+
+
+
+
+
+
+
+  <style>
+  #canvas{
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      margin: 0;
+      cursor: none;
+      background: #fff;
+  }
+  </style>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="bg_content">
+        <canvas id="canvas"></canvas>
+    </div>
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YOLO</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">You Only Live Once</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            目录
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/16/css自定义属性/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yolo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/icon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YOLO">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">css自定义属性</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-16T08:55:22+08:00">
+                2019-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/16/css自定义属性/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/08/16/css自定义属性/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一、CSS-自定义属性简介"><a href="#一、CSS-自定义属性简介" class="headerlink" title="一、CSS 自定义属性简介"></a>一、CSS 自定义属性简介</h1><p>CSS自定义属性已进入到W3C规范的 TR阶段，纳入在一个独立的模块中，即 CSS Custom Properties for Cascading Variables Module Level 1。 该模块引入了一系列作者（CSSer）自己定义的属性，这些属性统称为<strong>自定义属性</strong>，允许作者自由的选择名称，自由的为名称属性分配任意值。这些属性能够提供给var()函数使用，被var()函数引用的自定义属性又常被称为<strong>变量</strong>。</p>
+<p>这样一来，CSSer声明的这些自由属性就有了两个名称：<strong>自定义属性</strong> 和 <strong>变量</strong>：</p>
+<ul>
+<li><strong>自定义属性</strong>：使用 –<em>（</em>代表任意声明的名称）声明的特殊格式作为名称，该名称被称为自定义属性，同时可以给自定义属性赋予任何值。比如<code>--color: #fff。</code></li>
+<li><strong>变量</strong>：CSS的var()函数引用的自定义属性被称为<strong>变量</strong>。var()会返回自定义属性所对应的值，同时可以被运用于相应的CSS属性。对应的即是CSS规则中的<strong>属性值</strong>。</li>
+</ul>
+<p>用张图来描述他们之间的关系：</p>
+<img src="/2019/08/16/css自定义属性/1.png">
+<h1 id="二、CSS自定义属性的作用"><a href="#二、CSS自定义属性的作用" class="headerlink" title="二、CSS自定义属性的作用"></a>二、CSS自定义属性的作用</h1><p>如果你使用过任何编程语言，变量这个词（概念）并不会陌生。在一些命令式编程语言中（比如我们前端熟悉的JavaScript），可以通过变量让我们更好的跟踪某些状态。变量是一种符号，关联着一个特定的值，变量的值能随着时间的推移而改变。变量的好处还在于我们可以把值存储在一个地方，然后在需要的地方调用它或者修改它。这样就不用在程序的不同地方为不同的值添加不同的变量：</p>
+<p><strong>所有变量更新使用同一个存储地址。</strong></p>
+<img src="/2019/08/16/css自定义属性/2.png">
+<p>在CSS这种声明式语言，她是缺乏动态性的。也无法做到随着时间而改变的值并不存在，也就没有所谓<strong>变量</strong>的概念。可事实上，我们又非常的期待CSS也能和其他的编程语言一样，能随着周围环境和开发者的需求做出不断变化。</p>
+<p>在CSS自定义属性还没有出现的之前，CSS自身引入了一种层级变量的概念（稍后会提到），从而能够从容应对可维护性的挑战。这就会使得在整个CSS Tree中都可以象征性的引用一个变量。但这种象征性的变量往往不能很好的解决CSS的维护和扩展的问题，同时这种象征性的变量也足以让一些不了解CSS的同学头痛。这是后话，暂且不表。继续回到我们的实际场景中来。</p>
+<p>我想不少同学都应该有过构建大型Web网站或Web应用的经历，使用的CSS数量是非常庞大的，并且在很多场合有着大量的重复使用。就拿网站的配色方案来举例，一些颜色在CSS文件中会出现很多次，并被重复使用。当你修改配色方案时，不论是调整某个颜色或完全修改整个配色，都会是一个复杂的问题。如果单纯的依赖全局的查找替换是远远不够，这样的操作难免会出错。</p>
+<p>如果使用了CSS的框架，这种情况会变得尤其糟糕，此时如果要修改颜色，则需要对框架本身进行修改。虽然这些框架都有可能引入了Sass这样的CSS处理器帮助我们减少了出错的机会，提高了可维护性的能力，但这种通过添加额外步骤的方式（需要做编译处理），可能会增加系统的复杂性。</p>
+<p>CSS自定义属性（CSS变量）的出现，为我们带来了一些CSS处理器的便利，并且不需要额外的编译。在CSS中使用CSS自定义属性的好处和在编写语言中使用变量的好处没有特别的不同之处。W3C规范上有过这样的一段描述：</p>
+<p><strong>使用CSS自定义属性使得大文件更易于阅读，因为看起来很随意的值有了一个提示信息的名字，并且编辑这些文件更加简单，更不易于出错。因为你只需要在自定义属性处修改一次，这个修改就会应用到使用该自定义属性的任何地方。</strong></p>
+<p>简单地说，CSS自定义属性除了提供了更灵活的设置、引用和修改的便利性之外，还具有较强的语义化（这需要你对语义化有足够强的意识，比如primary这样的名称总是要比red这样的名称来得有意义）。这些语义化信息让你的CSS文件变得易读和理解。</p>
+<p><strong>为此，可读性和可维护性是CSS自定义属性最大的优势。</strong></p>
+<h2 id="三、CSS自定义属性语法和基础应用"><a href="#三、CSS自定义属性语法和基础应用" class="headerlink" title="三、CSS自定义属性语法和基础应用"></a>三、CSS自定义属性语法和基础应用</h2><p>在介绍CSS自定义属性时，我们可以从一些熟悉的东西开始着手，这样对于从后端转过来的同学更易于理解。我们就拿JavaScript中的变量来举例吧。</p>
+<p>在JavaScript中，声明一个变量有多种方式，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var customProperty</span><br><span class="line">// 或</span><br><span class="line">let customProperty = true</span><br><span class="line">// 还可以</span><br><span class="line">const customProperty = IS_ACTIVE</span><br></pre></td></tr></table></figure>
+
+<p>如果你对JavaScript和我一样的不熟悉，或者说你对CSS处理器有所接触过，我们可以拿CSS的处理器来举例。我们熟悉的几个CSS处理器，比如LESS、Sass和Stylus在声明变量的时候都有着自己的方式。通常会使用一个象征性的实体符来做为变量的前缀，比如说<strong>Sass</strong>中会使用<code>$</code>符，在<strong>LESS</strong>中使用<code>@</code>符，<strong>Stylus</strong>声明变量<code>不带特殊前缀</code>，直接使用表达式，比如<code>primary-color=red</code>。</p>
+<p>CSS自定义属性在声明的时候也使用了类似的方法，它引入了–符号做为前缀来声明一个自定义属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:root &#123; --primary: #f36; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>示例中的<code>--primary</code>就是一个我们所要说的CSS<strong>自定义属性</strong>。CSS自定义属性和常规CSS属性的用法是一样的。把它们当作<strong>动态属性</strong>会比变量更好。这意味着它们只能在<strong>声明块</strong>中使用。也就是说，<strong>自定义属性和选择器是强绑定的</strong>。可以是任何有效的选择器。</p>
+<p>如果已声明的CSS自定义属性未被任何属性调用的话，将不会产生任何的效果。只会是一段字符串停留在你的样式文件中。</p>
+<p>调用已声明的CSS自定义属性和其他CSS处理器中变量的调用略有不同。调用CSS自定义属性需要通过<code>var()</code>函数来引用。将CSS自定义属性当作<code>var()</code>函数的<strong>第一个参数</strong>传进去，并将整个函数赋值给CSS的属性（可以是CSS的属性，也可以是CSS的自定义属性），比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">	color: var(--primary);</span><br><span class="line">&#125;</span><br><span class="line">.button &#123;</span><br><span class="line"> 	--primaryButton: var(--primary);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>示例中的<code>var()</code>函数可以代替元素中任何属性中的值的任何部分。不过<code>var()</code>函数不能作为<strong>属性名、选择器或者其他除了属性值之外的值</strong>。</p>
+<p>var()函数同时可以接受两个值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var(&lt;custom-property-name&gt;, &lt;declaration-value&gt;)</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>&lt;custom-property-name&gt;</code>是CSS的自定义属性；<code>&lt;declaration-value&gt;</code>是一个回退值，该值被用来在自定义属性值无效的情况下保证var()函数有值，能让CSS属性规则生效。比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">:root &#123;</span><br><span class="line"> 	--primary: #f36;</span><br><span class="line">  &#125;</span><br><span class="line">.button &#123;</span><br><span class="line">	background-color: var(--primary, #fff)</span><br><span class="line">	color: var(--color, #333);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、CSS-自定义属性的使用"><a href="#四、CSS-自定义属性的使用" class="headerlink" title="四、CSS 自定义属性的使用"></a>四、CSS 自定义属性的使用</h2><p>现在对CSS自定义属性有了一个基本的认识，接下来用几个小示例代码向大家演示CSS自定义属性的一些特性，从而增强对其认知。</p>
+<h2 id="五、CSS自定义属性和CSS属性工作原理完全相同"><a href="#五、CSS自定义属性和CSS属性工作原理完全相同" class="headerlink" title="五、CSS自定义属性和CSS属性工作原理完全相同"></a>五、CSS自定义属性和CSS属性工作原理完全相同</h2><p>CSS自定义属性可以在任何元素、选择器，甚至是伪元素上声明的普通属性。他的使用和CSS属性的使用是相同的，原理也是相同的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">:root &#123;</span><br><span class="line">	--font-size: 1em;</span><br><span class="line">&#125;</span><br><span class="line">p &#123;</span><br><span class="line">	font-size: var(--font-size);</span><br><span class="line">&#125;</span><br><span class="line">section::after &#123;</span><br><span class="line">	font-size:1.5em;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/08/16/css自定义属性/3.png">
+
+<h2 id="六、CSS自定义属性和CSS属性一样具有继承和级联特性"><a href="#六、CSS自定义属性和CSS属性一样具有继承和级联特性" class="headerlink" title="六、CSS自定义属性和CSS属性一样具有继承和级联特性"></a>六、CSS自定义属性和CSS属性一样具有继承和级联特性</h2><p>CSS中有三个概念是学习CSS必须要掌握的，即<strong>层叠</strong>、<strong>继承</strong>和<strong>权重</strong>。CSS自定义属性同样的具备继承和级联等特性。比如说：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- HTML --&gt;</span><br><span class="line"> &lt;div class=&quot;parent&quot;&gt;</span><br><span class="line"> 	&lt;div class=&quot;child1&quot;&gt;&lt;/div&gt;</span><br><span class="line"> 	&lt;div class=&quot;child2&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">// CSS</span><br><span class="line">.parent &#123;</span><br><span class="line">	--primary: #f36;</span><br><span class="line">&#125; .</span><br><span class="line">child1 &#123;</span><br><span class="line">	background-color: var(--primary);</span><br><span class="line">&#125;</span><br><span class="line">.child2 &#123;</span><br><span class="line"> 	color: var(--primary);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的示例中，.child1和.child2都继承了他们父元素.parent中的–primary自定义属性。但在很多情况之下，我们不需要这样行为，我们可以在:root{}中来显式声明自定义属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">:root &#123;</span><br><span class="line">	--primary: #f36;</span><br><span class="line">&#125;</span><br><span class="line">.child1 &#123;</span><br><span class="line">	background-color: var(--primary);</span><br><span class="line">&#125;</span><br><span class="line">.child2 &#123;</span><br><span class="line">	color: var(--primary)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样可能不易于理解，拿一个更真实的案例来举例。比如说，每个Web应用都会有自己的下色系，就拿<strong>Bootstrap</strong>这个CSS框架的色系来说吧，它的主色系是<code>--primary: #007bff</code>，该色会用于多个地方，比如：</p>
+<img src="/2019/08/16/css自定义属性/4.png">
+<p>使用CSS继承的特性，可以把事情变得更简易：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">:root&#123;</span><br><span class="line">	--primary: #007bff;</span><br><span class="line">&#125;</span><br><span class="line">// Button组件</span><br><span class="line">.btn-primary &#123;</span><br><span class="line">	background-color: var(--primary);</span><br><span class="line">	border-color: var(--primary);</span><br><span class="line">&#125;</span><br><span class="line">// Badge组件</span><br><span class="line">.badge-primary &#123;</span><br><span class="line">	background-color: var(--primary);</span><br><span class="line">	border-color: var(--primary);</span><br><span class="line">&#125;</span><br><span class="line">// Dropdowns组件</span><br><span class="line">.dropdown-primary &#123;</span><br><span class="line">	background-color: var(--primary);</span><br><span class="line">	border-color: var(--primary);</span><br><span class="line">&#125;</span><br><span class="line">// Pagination组件</span><br><span class="line">.page-link &#123;</span><br><span class="line">	color: var(--primary);</span><br><span class="line">&#125;</span><br><span class="line">// Progress组件</span><br><span class="line">.progress-bar &#123;</span><br><span class="line">	background-color: var(--primary);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有朝一日，你的老板说这种颜色不想再看了，想换换色系，那么只需要调整<code>:root</code>中的<code>--primary</code>的值即可。</p>
+<p>另外就是相同的模块组件只有略微性的差异，比如下图这样的一个效果：</p>
+<img src="/2019/08/16/css自定义属性/5.png">
+<p>对于这样的一个效果，借助CSS的级联特性，也可以将事情变得更容易：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">:root &#123;</span><br><span class="line">	--color: #333;</span><br><span class="line">&#125;</span><br><span class="line">.card &#123;</span><br><span class="line">	color: var(--card);</span><br><span class="line">	&amp;:nth-child(2) &#123;</span><br><span class="line">		--color: #2196F3;</span><br><span class="line">	&#125;</span><br><span class="line">	&amp;:nth-child(3) &#123;</span><br><span class="line">		--color: #f321ab;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因为CSS的级联和继承是较为复杂的，为了更好的能让大家清楚CSS自定义属性使用时借助CSS的级联和继承彰显出自己特性（代码量更少，更易维护，更易扩展）。再为大家展示一个层级更深的示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- HTML --&gt;</span><br><span class="line">&lt;p&gt;我是什么颜色？&lt;/p&gt;</span><br><span class="line">&lt;div&gt;我又是什么颜色?&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;alert&quot;&gt;</span><br><span class="line">	我是什么颜色?</span><br><span class="line">	&lt;p&gt;我又是什么颜色？&lt;/p&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line"> // CSS</span><br><span class="line">:root &#123;</span><br><span class="line">	--color: #333;</span><br><span class="line">&#125;</span><br><span class="line">div &#123;</span><br><span class="line">	--color: #2196F3;</span><br><span class="line">&#125;</span><br><span class="line"> #alert &#123;</span><br><span class="line"> 	--color: #f321ab;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果用下图来阐述：</p>
+<img src="/2019/08/16/css自定义属性/6.png">
+
+<h2 id="七、CSS自定义属性可以在行内style属性中使用"><a href="#七、CSS自定义属性可以在行内style属性中使用" class="headerlink" title="七、CSS自定义属性可以在行内style属性中使用"></a>七、CSS自定义属性可以在行内style属性中使用</h2><p>CSS自定义属性和CSS属性一样，可以在元素的<code>style</code>属性中使用CSS自定义属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- HTML --&gt;</span><br><span class="line">&lt;button style=&quot;--color: blue&quot;&gt;Click Me&lt;/button&gt;</span><br><span class="line">// CSS</span><br><span class="line">button &#123;</span><br><span class="line">	border: 1px solid var(--color);</span><br><span class="line">&#125;</span><br><span class="line">button:hover &#123;</span><br><span class="line"> 	background-color: var(--color);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>内联样式中使用<strong>CSS自定义属性</strong>非常有意义，特别是在通过<code>JavaScript</code>来操作<code>CSS</code>自定义属性的时候特别更有意义。</p>
+<h2 id="八、CSS自定义属性区分大小写"><a href="#八、CSS自定义属性区分大小写" class="headerlink" title="八、CSS自定义属性区分大小写"></a>八、CSS自定义属性区分大小写</h2><p>CSS自定义属性和CSS属性略有不同，CSS的属性不会区分大小写，但CSS自定义属性则会区分大小写。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">:root &#123;</span><br><span class="line">	--COLOR: #fff;</span><br><span class="line">	--color: #f36;</span><br><span class="line">&#125;</span><br><span class="line">.box &#123;</span><br><span class="line">	color: var(--COLOR);</span><br><span class="line">	background-color: var(--color);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/08/16/css自定义属性/7.png">
+
+<h2 id="九、CSS自定义属性命名"><a href="#九、CSS自定义属性命名" class="headerlink" title="九、CSS自定义属性命名"></a>九、CSS自定义属性命名</h2><p>CSS自定义属性的命名规则比较松散，可以是任何有效的字符，比如中文、大写字母、驼峰命名、中距线、emoji和HTML实体等等：</p>
+<img src="/2019/08/16/css自定义属性/8.png">
+
+<h2 id="十、CSS自定义属性支持回退参数"><a href="#十、CSS自定义属性支持回退参数" class="headerlink" title="十、CSS自定义属性支持回退参数"></a>十、CSS自定义属性支持回退参数</h2><p>在介绍CSS自定义属性的时候，如果将CSS自定义属性当作var()函数的参数传进去的时候，它还支持第二个参数，即回退参数。而CSS的属性是不支持这一特性。</p>
+<ul>
+<li>如果CSS自定义属性不被浏览器支持，那么可以提供一个降级的参数以备能让浏览器识别</li>
+<li>如果浏览器支持CSS自定义属性，但并没有显式声明该CSS自定义属性的值，则会选择降级的参数</li>
+<li>如果浏览器支持CSS自定义属性，而且显式声明了该CSS自定义属性的值，则会选择CSS自定义属性的值，不会选择降级的参数</li>
+</ul>
+<p>比如下面这个示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">:root &#123;</span><br><span class="line">	--color: #f36;</span><br><span class="line">&#125;</span><br><span class="line">.box &#123;</span><br><span class="line">	width: var(--w, 100px);</span><br><span class="line">	color: var(--color, #fff);</span><br><span class="line">	border-width: var(--color, 2px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/08/16/css自定义属性/9.png">
+
+<h2 id="十一、无效的CSS自定义属性将会发生什么？"><a href="#十一、无效的CSS自定义属性将会发生什么？" class="headerlink" title="十一、无效的CSS自定义属性将会发生什么？"></a>十一、无效的CSS自定义属性将会发生什么？</h2><p>无效的CSS自定义属性运用于一个CSS的属性时将会发生什么呢？在告诉大家会发生什么之前，我们先来看看在CSS的属性中使用了一个无效的值会发生什么？</p>
+<p>我想我们都有过手误的经过，比如说，在做CR(Code Review)的时候会发现这样的现象，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.card &#123;</span><br><span class="line">    padding: -10px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>而<code>padding</code>是不支持负值，也就是说，<code>-10px</code>对于<code>padding</code>属性来说是一个无效的值，这个时候，浏览器在渲染的时候会采用<code>padding</code>的初始值<code>（initial）</code>，即<code>0</code>：</p>
+<img src="/2019/08/16/css自定义属性/10.png">
+<p>在使用CSS自定义属性的时候，如果CSS自定义属性在被调用时对于CSS属性来说是一个无效值时，也会采用initial做为降级处理，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">:root &#123;</span><br><span class="line">	 --color: 20px;</span><br><span class="line"> &#125;</span><br><span class="line">.p &#123;</span><br><span class="line">	color: var(--color);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>就上面的示例而言，声明的<code>--color: 20px</code>是一个有效的值，但其被用于<code>color</code>属性时，<code>--color</code>是一个无效的值，因为<code>20px</code>对于<code>color</code>属性而言是一个无效的值。在这种情形之下，<code>color</code>属性会采用其初始值<code>initial</code>（取决于用户代理）。如果该元素的父辈元素没有显式设置<code>color</code>的值，那么会继承<code>&lt;html&gt;</code>元素的<code>color</code>值，在<code>Chrome</code>浏览器下会是一个<code>#000</code>的颜色值。</p>
+<p>还有另外一个情景，虽然在调用已声明的<code>CSS</code>自定义属性是一个无效的值，但提供了一个降级值，而且该降级的值是一个有效的值，那么就不会采用<code>initial</code>值，而是会采用降级值，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">:root &#123;</span><br><span class="line">	--color: 20px;</span><br><span class="line">&#125;</span><br><span class="line">p &#123;</span><br><span class="line">	color: var(--color, blue);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/08/16/css自定义属性/11.png">
+
+<h2 id="十二、链式的CSS自定义属性"><a href="#十二、链式的CSS自定义属性" class="headerlink" title="十二、链式的CSS自定义属性"></a>十二、链式的CSS自定义属性</h2><p>使用<code>var()</code>函数调用已声明的<code>CSS</code>自定义属性时，给<code>var()</code>提供降级参数时，我们可以使用链式的方式提供降级参数，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">p &#123;</span><br><span class="line">	--color1: red;</span><br><span class="line">	 --color2: blueviolet;</span><br><span class="line"> 	--color3: orange;</span><br><span class="line"> color: var(--color1, var(--color2, var(--color3, blue)));</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/08/16/css自定义属性/12.png">
+
+<h2 id="十三、循环依赖的CSS自定义属性是无效的"><a href="#十三、循环依赖的CSS自定义属性是无效的" class="headerlink" title="十三、循环依赖的CSS自定义属性是无效的"></a>十三、循环依赖的CSS自定义属性是无效的</h2><p>CSS是一门声明性的语言，元素的样式规则没有顺序的概念（相同的属性出现在同一个选择器块内，后者会覆盖前者）。它只能有一个值，它不可能同时是以前值和它的值加1，因此这形成了一个循环。</p>
+<p>我们先从JavaScript中来讲起，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 1;</span><br><span class="line">var a = a;</span><br><span class="line">console.log(a); // » 1</span><br></pre></td></tr></table></figure>
+
+<p>我们再来看CSS自定义属性的循环使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">:root &#123;</span><br><span class="line">	--size: 10px;</span><br><span class="line">	--size: var(--size);</span><br><span class="line">&#125;</span><br><span class="line">body &#123;</span><br><span class="line"> 	font-size: var(--size, 2rem);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在CSS中，相同的CSS属性在同一个选择器块内，后者会覆盖前者，比如上面的示例中<code>--size: var(--size)</code>将会覆盖<code>--size</code>。但CSS自定义属性如果其值依赖于自身的话，即，它使用的是引用自身的<code>var()</code>，该值是无效的。上例中-<code>-size</code>自定义属性无效，在<code>body</code>中调用<code>--size</code>时无效，此时采用了<code>var()</code>的降级值<code>2rem</code>。</p>
+<img src="/2019/08/16/css自定义属性/13.png">
+<p>除了自定义属性引用自身外，还有另外一情景，那就是两个或多个自定义属性之间相互引用：</p>
+<pre><code>:root {
+    --one: calc(var(--two) + 10px);
+    --two: calc(var(--one) - 10px);
+}</code></pre><p>这种相互引用的CSS自定义属性也是无效值。目前唯一可破的方式是：<strong>不要在代码中创建具有循环依赖关系的CSS自定义属性</strong>。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/09/css-Grid网格布局/" rel="next" title="css Grid网格布局">
+                <i class="fa fa-chevron-left"></i> css Grid网格布局
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2019/08/16/css自定义属性/" data-title="css自定义属性" data-url="http://yoursite.com/2019/08/16/css自定义属性/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/icon.png" alt="yolo">
+            
+              <p class="site-author-name" itemprop="name">yolo</p>
+              <p class="site-description motion-element" itemprop="description">You Only Live Once</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、CSS-自定义属性简介"><span class="nav-number">1.</span> <span class="nav-text">一、CSS 自定义属性简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、CSS自定义属性的作用"><span class="nav-number">2.</span> <span class="nav-text">二、CSS自定义属性的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#三、CSS自定义属性语法和基础应用"><span class="nav-number">2.1.</span> <span class="nav-text">三、CSS自定义属性语法和基础应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、CSS-自定义属性的使用"><span class="nav-number">2.2.</span> <span class="nav-text">四、CSS 自定义属性的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、CSS自定义属性和CSS属性工作原理完全相同"><span class="nav-number">2.3.</span> <span class="nav-text">五、CSS自定义属性和CSS属性工作原理完全相同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、CSS自定义属性和CSS属性一样具有继承和级联特性"><span class="nav-number">2.4.</span> <span class="nav-text">六、CSS自定义属性和CSS属性一样具有继承和级联特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、CSS自定义属性可以在行内style属性中使用"><span class="nav-number">2.5.</span> <span class="nav-text">七、CSS自定义属性可以在行内style属性中使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、CSS自定义属性区分大小写"><span class="nav-number">2.6.</span> <span class="nav-text">八、CSS自定义属性区分大小写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、CSS自定义属性命名"><span class="nav-number">2.7.</span> <span class="nav-text">九、CSS自定义属性命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、CSS自定义属性支持回退参数"><span class="nav-number">2.8.</span> <span class="nav-text">十、CSS自定义属性支持回退参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一、无效的CSS自定义属性将会发生什么？"><span class="nav-number">2.9.</span> <span class="nav-text">十一、无效的CSS自定义属性将会发生什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十二、链式的CSS自定义属性"><span class="nav-number">2.10.</span> <span class="nav-text">十二、链式的CSS自定义属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十三、循环依赖的CSS自定义属性是无效的"><span class="nav-number">2.11.</span> <span class="nav-text">十三、循环依赖的CSS自定义属性是无效的</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+    <div id="music163player">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=415793857&auto=1&height=66"></iframe>
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yolo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"YOLO"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script>
+class Circle {
+
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.r = Math.random() * 3 ;
+        this._mx = Math.random() ;
+        this._my = Math.random() ;
+
+    }
+    drawCircle(ctx) {
+        ctx.beginPath();
+        //arc()
+        ctx.arc(this.x, this.y, this.r, 0, 360)
+        ctx.closePath();
+        ctx.fillStyle = 'rgba(204, 204, 204, 0.3)';
+        ctx.fill();
+    }
+
+    drawLine(ctx, _circle) {
+        let dx = this.x - _circle.x;
+        let dy = this.y - _circle.y;
+        let d = Math.sqrt(dx * dx + dy * dy)
+        if (d < 150) {
+            ctx.beginPath();
+
+            ctx.moveTo(this.x, this.y);
+            ctx.lineTo(_circle.x, _circle.y);
+            ctx.closePath();
+            ctx.strokeStyle = 'rgba(204, 204, 204, 0.3)';
+            ctx.stroke();
+        }
+    }
+
+
+    move(w, h) {
+        this._mx = (this.x < w && this.x > 0) ? this._mx : (-this._mx);
+        this._my = (this.y < h && this.y > 0) ? this._my : (-this._my);
+        this.x += this._mx / 2;
+        this.y += this._my / 2;
+    }
+}
+class currentCirle extends Circle {
+    constructor(x, y) {
+        super(x, y)
+    }
+
+    drawCircle(ctx) {
+        ctx.beginPath();
+
+        //this.r = (this.r < 14 && this.r > 1) ? this.r + (Math.random() * 2 - 1) : 2;
+        this.r = 4;
+        ctx.arc(this.x, this.y, this.r, 0, 360);
+        ctx.closePath();
+        //ctx.fillStyle = 'rgba(0,0,0,' + (parseInt(Math.random() * 100) / 100) + ')'
+        ctx.fillStyle = 'rgba(255, 77, 54, 0.2)'
+        ctx.fill();
+
+    }
+}
+//?????requestAnimationFrame??setTimeout
+window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+
+let canvas = document.getElementById('canvas');
+let ctx = canvas.getContext('2d');
+let w = canvas.width = canvas.offsetWidth;
+let h = canvas.height = canvas.offsetHeight;
+let circles = [];
+let current_circle = new currentCirle(0, 0)
+
+let draw = function () {
+    ctx.clearRect(0, 0, w, h);
+    for (let i = 0; i < circles.length; i++) {
+        circles[i].move(w, h);
+        circles[i].drawCircle(ctx);
+        for (j = i + 1; j < circles.length; j++) {
+            circles[i].drawLine(ctx, circles[j])
+        }
+    }
+    if (current_circle.x) {
+        current_circle.drawCircle(ctx);
+        for (var k = 1; k < circles.length; k++) {
+            current_circle.drawLine(ctx, circles[k])
+        }
+    }
+    requestAnimationFrame(draw)
+}
+
+let init = function (num) {
+    for (var i = 0; i < num; i++) {
+        circles.push(new Circle(Math.random() * w, Math.random() * h));
+    }
+    draw();
+}
+window.addEventListener('load', init(60));
+window.onmousemove = function (e) {
+    e = e || window.event;
+    current_circle.x = e.clientX;
+    current_circle.y = e.clientY;
+}
+window.onmouseout = function () {
+    current_circle.x = null;
+    current_circle.y = null;
+
+};
+</script>
+</html>
