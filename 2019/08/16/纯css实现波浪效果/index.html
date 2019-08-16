@@ -83,21 +83,14 @@
 <meta name="keywords" content="css3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="纯cs实现s波浪效果">
-<meta property="og:url" content="http://yoursite.com/2019/08/16/纯cs实现s波浪效果/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/08/16/纯css实现波浪效果/index.html">
 <meta property="og:site_name" content="YOLO">
 <meta property="og:description" content="原理原理十分简单，我们都知道，一个正方形，给它添加 border-radius: 50%，将会得到一个圆形。    border-radius：用来设置边框圆角，当使用一个半径时确定一个圆形。好的，如果 border-radius 没到 50%，但是接近 50% ，我们会得到一个这样的图形： 注意边角，整个图形给人的感觉是有点圆，却不是很圆。额，这不是废话吗 ？  好的，那整这么个图形又有什么用？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/08/16/纯cs实现s波浪效果/1.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/16/纯cs实现s波浪效果/2.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/16/纯cs实现s波浪效果/3.gif">
-<meta property="og:image" content="http://yoursite.com/2019/08/16/纯cs实现s波浪效果/4.gif">
-<meta property="og:image" content="http://yoursite.com/2019/08/16/纯cs实现s波浪效果/5.gif">
-<meta property="og:image" content="http://yoursite.com/2019/08/16/纯cs实现s波浪效果/6.gif">
 <meta property="og:updated_time" content="2019-08-16T06:47:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="纯cs实现s波浪效果">
 <meta name="twitter:description" content="原理原理十分简单，我们都知道，一个正方形，给它添加 border-radius: 50%，将会得到一个圆形。    border-radius：用来设置边框圆角，当使用一个半径时确定一个圆形。好的，如果 border-radius 没到 50%，但是接近 50% ，我们会得到一个这样的图形： 注意边角，整个图形给人的感觉是有点圆，却不是很圆。额，这不是废话吗 ？  好的，那整这么个图形又有什么用？">
-<meta name="twitter:image" content="http://yoursite.com/2019/08/16/纯cs实现s波浪效果/1.png">
 
 
 
@@ -127,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/16/纯cs实现s波浪效果/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/16/纯css实现波浪效果/">
 
 
 
@@ -256,7 +249,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/16/纯cs实现s波浪效果/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/16/纯css实现波浪效果/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yolo">
@@ -304,8 +297,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/08/16/纯cs实现s波浪效果/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/08/16/纯cs实现s波浪效果/" itemprop="commentCount"></span>
+                <a href="/2019/08/16/纯css实现波浪效果/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/08/16/纯css实现波浪效果/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -334,20 +327,20 @@
 
       
         <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>原理十分简单，我们都知道，一个正方形，给它添加 <code>border-radius: 50%</code>，将会得到一个圆形。</p>
-<img src="/2019/08/16/纯cs实现s波浪效果/1.png">
+
 
 <ul>
-<li><code>border-radius</code>：用来设置边框圆角，当使用一个半径时确定一个圆形。<br>好的，如果 <code>border-radius</code> 没到 50%，但是接近 50% ，我们会得到一个这样的图形：<img src="/2019/08/16/纯cs实现s波浪效果/2.png">
+<li><code>border-radius</code>：用来设置边框圆角，当使用一个半径时确定一个圆形。<br>好的，如果 <code>border-radius</code> 没到 50%，但是接近 50% ，我们会得到一个这样的图形：
 注意边角，整个图形给人的感觉是有点圆，却不是很圆。额，这不是废话吗 ？</li>
 </ul>
 <p>好的，那整这么个图形又有什么用？还能变出波浪来不成？</p>
 <p>没错！就是这么神奇。:)<br>我们让上面这个图形滚动起来(rotate) ，看看效果：</p>
-<img src="/2019/08/16/纯cs实现s波浪效果/3.gif">
+
 <p>可能很多人看到这里还没懂旋转起来的意图，仔细盯着一边看，是会有类似波浪的起伏效果的。</p>
 <p>而我们的目的，就是要借助这个动态变换的起伏动画，模拟制造出类似波浪的效果。</p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>当然，这里看到是全景实现图，所以感觉并不明显，OK，让我们用一个个例子看看具体实现起来能达到什么样的效果。</p>
 <p>我们利用上面原理可以做到的一种波浪运动背景效果图：</p>
-<img src="/2019/08/16/纯cs实现s波浪效果/4.gif">
+
 <p>后面漂浮的波浪效果，其实就是利用了上面的 <code>border-radius: 45%</code> 的椭圆形，只是放大了很多倍，视野之外的图形都 overflow: hidden ，只留下了一条边的视野，并且增加了一些相应的transform 变换。</p>
 <ul>
 <li>注意，这里背景是蓝色静止的，运动是白色的椭圆形。<br>代码也很简单，CSS 代码如下：</li>
@@ -355,7 +348,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">:root&#123;</span><br><span class="line">            --dispaly:flex;</span><br><span class="line">            --justify:center;</span><br><span class="line">            --align:center;</span><br><span class="line">            --backgroundColor: #FF0099;</span><br><span class="line">            --backgroundColor1: rgb(118, 218, 255);</span><br><span class="line">            --backgroundColor2: #fff;</span><br><span class="line">            --borderRadius: 40%;</span><br><span class="line">            --animation: rotate 6s linear infinite;</span><br><span class="line">        &#125;</span><br><span class="line">        .comCenter&#123;</span><br><span class="line">            display: var(--dispaly);</span><br><span class="line">            justify-content:var(--justify);</span><br><span class="line">            align-items: var(--align);</span><br><span class="line">        &#125;</span><br><span class="line">        .topBox div&#123;</span><br><span class="line">            width: 140px;</span><br><span class="line">            height: 140px;</span><br><span class="line">            background: var(--backgroundColor);</span><br><span class="line">            border-radius:var(--borderRadius);</span><br><span class="line">            margin: 60px;</span><br><span class="line">            animation: var(--animation);</span><br><span class="line">        &#125;</span><br><span class="line">        @keyframes rotate&#123;</span><br><span class="line">            0%&#123;</span><br><span class="line">                transform:translate(-30%, -70%) rotate(0deg);</span><br><span class="line">            &#125;</span><br><span class="line">            50%&#123;</span><br><span class="line">                transform:translate(-40%, -73%) rotate(180deg);</span><br><span class="line">            &#125;</span><br><span class="line">            100%&#123;</span><br><span class="line">                transform:translate(-30%, -70%) rotate(360deg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        .centerBox .aa&#123;</span><br><span class="line">            position: relative;</span><br><span class="line">            width: 220px;</span><br><span class="line">            min-height: 220px;</span><br><span class="line">            background: var(--backgroundColor1);</span><br><span class="line">            overflow: hidden;</span><br><span class="line">        &#125;</span><br><span class="line">        .centerBox .aa:before&#123;</span><br><span class="line">            content:&apos;&apos;;</span><br><span class="line">            position: absolute;</span><br><span class="line">            left: 50%;</span><br><span class="line">            min-width: 140px;</span><br><span class="line">            min-height: 140px;</span><br><span class="line">            background: var(--backgroundColor2);</span><br><span class="line">            animation: var(--animation);</span><br><span class="line">        &#125;</span><br><span class="line">        .centerBox .aa:after&#123;</span><br><span class="line">            content:&apos;&apos;;</span><br><span class="line">            position: absolute;</span><br><span class="line">            left: 50%;</span><br><span class="line">            min-width: 140px;</span><br><span class="line">            min-height: 140px;</span><br><span class="line">            background: var(--backgroundColor2);</span><br><span class="line">            animation: var(--animation);</span><br><span class="line">        &#125;</span><br><span class="line">        .centerBox .aa:before&#123;</span><br><span class="line">            bottom: 30px;</span><br><span class="line">            border-radius: 45%;</span><br><span class="line">        &#125;</span><br><span class="line">        .centerBox .aa:after&#123;</span><br><span class="line">            bottom: 22px;</span><br><span class="line">            opacity: .5;</span><br><span class="line">            border-radius: 47%;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 
 <p>可能有部分同学，还存在疑问，OK，那我们把上面的效果缩小 10 倍，将视野之外的动画也补齐，那么其实生成波浪的原理是这样的：</p>
-<img src="/2019/08/16/纯cs实现s波浪效果/5.gif">
+
 <p>图中的虚线框就是我们实际的视野范围。<br>值得注意的是，要看到，这里我们生成波浪，并不是利用旋转的椭圆本身，而是利用它去切割背景，产生波浪的效果。那为什么不直接使用旋转的椭圆本身模拟波浪效果呢？因为：</p>
 <ul>
 <li>中间高，两边低的效果不符合物理学原理，看上去十分别扭；<h2 id="使用纯-CSS-实现波浪进度图"><a href="#使用纯-CSS-实现波浪进度图" class="headerlink" title="使用纯 CSS 实现波浪进度图"></a>使用纯 CSS 实现波浪进度图</h2>好，既然掌握了这种方法，下面我们就使用纯 CSS 实现上面最开始使用 SVG 或者 CANVAS 才能实现的波浪进度图。</li>
@@ -367,7 +360,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">:root&#123;</span><br><span class="line">            --dispaly:flex;</span><br><span class="line">            --justify:center;</span><br><span class="line">            --align:center;</span><br><span class="line">            --backgroundColor: #FF0099;</span><br><span class="line">            --backgroundColor1: rgb(118, 218, 255);</span><br><span class="line">            --backgroundColor2: #fff;</span><br><span class="line">            --borderRadius: 40%;</span><br><span class="line">            --animation: rotate 6s linear infinite;</span><br><span class="line">        &#125;</span><br><span class="line">.waveBox&#123;</span><br><span class="line">            width: 210px;</span><br><span class="line">            height: 210px;</span><br><span class="line">            --borderRadius:50%;</span><br><span class="line">            border-radius: var(--borderRadius);</span><br><span class="line">            border: 5px solid var(--backgroundColor1);</span><br><span class="line">            z-index: 30;</span><br><span class="line">            overflow: hidden;</span><br><span class="line">        &#125;</span><br><span class="line">        .wave&#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background:var(--backgroundColor1);</span><br><span class="line">            position: relative;</span><br><span class="line">            --borderRadius:50%;</span><br><span class="line">            border-radius: var(--borderRadius);</span><br><span class="line">            overflow: hidden;</span><br><span class="line">        &#125;</span><br><span class="line">        .wave:after&#123;</span><br><span class="line">            content: &apos;&apos;;</span><br><span class="line">            position: absolute;</span><br><span class="line">            width:400px;</span><br><span class="line">            height: 400px;</span><br><span class="line">            top:0;</span><br><span class="line">            left:20%;</span><br><span class="line">            --animation: rotate 7s linear -5s infinite;</span><br><span class="line">            animation: var(--animation);</span><br><span class="line">        &#125;</span><br><span class="line">        .wave:before&#123;</span><br><span class="line">            content: &apos;&apos;;</span><br><span class="line">            position: absolute;</span><br><span class="line">            width:400px;</span><br><span class="line">            height: 400px;</span><br><span class="line">            top:0;</span><br><span class="line">            left:20%;</span><br><span class="line">            background: rgba(255, 255, 255, .4);</span><br><span class="line">            border-radius: 35%;</span><br><span class="line">            z-index: 10;</span><br><span class="line">            animation: var(--animation);</span><br><span class="line">        &#125;</span><br><span class="line">        .wave:after&#123;</span><br><span class="line">            border-radius: 37%;</span><br><span class="line">            background: rgba(255,255,255,.9);</span><br><span class="line">            z-index: 20;</span><br><span class="line">        &#125;</span><br><span class="line">        @keyframes rotate&#123;</span><br><span class="line">            0%&#123;</span><br><span class="line">                transform:translate(-30%, -70%) rotate(0deg);</span><br><span class="line">            &#125;</span><br><span class="line">            50%&#123;</span><br><span class="line">                transform:translate(-40%, -73%) rotate(180deg);</span><br><span class="line">            &#125;</span><br><span class="line">            100%&#123;</span><br><span class="line">                transform:translate(-30%, -70%) rotate(360deg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 
 <p>效果图：</p>
-<img src="/2019/08/16/纯cs实现s波浪效果/6.gif">
+
 <p>虽然效果差了一点点，但是相较于要使用学习成本更高的 SVG 或者 CANVAS，这种纯 CSS 方法无疑可使用的场景更多，学习成本更低！</p>
 <h2 id="一些小技巧"><a href="#一些小技巧" class="headerlink" title="一些小技巧"></a>一些小技巧</h2><p>单纯的让一个 border-radius 接近 50 的椭圆形旋转，动画效果可能不是那么逼真，我们可以适当的添加一些其他变换因素，让动画效果看上去更真实：</p>
 <ul>
@@ -444,7 +437,7 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2019/08/16/纯cs实现s波浪效果/" data-title="纯cs实现s波浪效果" data-url="http://yoursite.com/2019/08/16/纯cs实现s波浪效果/">
+      <div class="ds-thread" data-thread-key="2019/08/16/纯css实现波浪效果/" data-title="纯cs实现s波浪效果" data-url="http://yoursite.com/2019/08/16/纯css实现波浪效果/">
       </div>
     </div>
 
